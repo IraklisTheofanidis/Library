@@ -13,20 +13,23 @@ function book(title, author,pages,read) {
       
 
   }
-
-if (localStorage.getItem('books') === null) {
+alert(localStorage.getItem('bookss'));
+if (localStorage.getItem('bookss') === null) {
     myLibrary = [];
+    alert("null mother fuckers")
 } 
 else {
-    const booksFromStorage = JSON.parse(localStorage.getItem('books'));
+   
+    const booksFromStorage = JSON.parse(localStorage.getItem('bookss'));
     myLibrary = booksFromStorage;
+    //alert(JSON.stringify(myLibrary));
     showBookInLibrary();
 }
   
   function addBookToLibrary(titleText, authorText,pagesText,TRUE){   
      let book1 = new book(titleText, authorText,pagesText,TRUE);   
      myLibrary.push(book1);
-
+     localStorage.setItem('bookss', JSON.stringify(myLibrary));
     // showBookInLibrary(book1);
     showBookInLibrary();
     // alert(myLibrary.length);
@@ -46,6 +49,99 @@ document.getElementById("submit").addEventListener("click", function() {
     document.getElementById("pages").value="";
   });
 
+  function showBookInLibrary(){
+
+    refreshLibrary();
+    
+    for(i=0;i<myLibrary.length;i++){
+        let div = document.createElement('div');
+        div.setAttribute('class', 'books'); 
+       
+        let h3 = document.createElement('h3');
+        h3.textContent = myLibrary[i]["title"];
+        div.appendChild(h3);
+
+        let author = document.createElement("p");
+        author.textContent = "Author: " +myLibrary[i]["author"];
+        author.setAttribute("class","author");
+        div.appendChild(author);
+
+        let pages = document.createElement("p");
+       pages.textContent = "Pages: " +myLibrary[i]["pages"];
+       div.appendChild(pages);
+
+       let buttons = document.createElement("div");
+
+       let readButton = document.createElement("button");
+        if(myLibrary[i].read===true){readButton.textContent="Read";}
+        else{readButton.textContent="Not Read";}
+
+        readButton.addEventListener("click", function(e) {
+            alert(e.target.textContent);
+            if(e.target.textContent==="Read"){
+                e.target.textContent="Not Read"
+                titleChild=e.target.parentNode.parentNode.childNodes[0].textContent; //takes tha value of h3(from the same div)
+                for(k=0;k<myLibrary.length;k++)
+                {
+                    if(myLibrary[k].title===titleChild){
+                        alert(JSON.stringify(myLibrary));
+                        myLibrary[k].read=false;
+                        alert(JSON.stringify(myLibrary));
+                        localStorage.setItem('bookss', JSON.stringify(myLibrary));
+                    }
+                }               
+            }
+            else{
+                e.target.textContent="Read";
+                titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;
+                for(k=0;k<myLibrary.length;k++)
+                {
+                    if(myLibrary[k].title===titleChild){
+                        alert(JSON.stringify(myLibrary));
+                        myLibrary[k].read=true;
+                        alert(JSON.stringify(myLibrary));
+                        localStorage.setItem('bookss', JSON.stringify(myLibrary));
+                    }
+                 
+                }
+            }
+        });
+
+       //readButton.textContent="Read";
+       readButton.setAttribute("class","btn");
+       buttons.appendChild(readButton);
+
+       let removeButton = document.createElement("button");
+       removeButton.textContent="Remove";
+       removeButton.setAttribute("class","btn remove");
+       removeButton.setAttribute("id",i);
+       removeButton.setAttribute("style", "color: red;");
+       removeButton.addEventListener("click", function(e) {
+            titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;
+         //   alert(myLibrary.length);
+            for(k=0;k<myLibrary.length;k++)
+            {
+                if(myLibrary[k].title===titleChild){
+                    alert(JSON.stringify(myLibrary));
+                    myLibrary.splice(k,1);
+                    alert(JSON.stringify(myLibrary));
+                    localStorage.setItem('bookss', JSON.stringify(myLibrary));
+                }
+                 
+            }
+            e.target.parentNode.parentNode.remove();
+
+  });
+       
+       buttons.appendChild(removeButton);
+
+
+       div.appendChild(buttons);
+
+        document.getElementById("deksia").appendChild(div); 
+       // let ele = document.querySelectorAll(".books");     
+    }    
+}
 
 function checkError(titleText,authorText,pagesText,readCheck){
     if(titleText===""||authorText===""||pagesText===""){
@@ -97,98 +193,6 @@ function checkSameTitle(titleText){
 }
   
 
-function showBookInLibrary(){
-
-    refreshLibrary();
-    localStorage.setItem('books', JSON.stringify(myLibrary));
-    for(i=0;i<myLibrary.length;i++){
-        let div = document.createElement('div');
-        div.setAttribute('class', 'books'); 
-       
-        let h3 = document.createElement('h3');
-        h3.textContent = myLibrary[i]["title"];
-        div.appendChild(h3);
-
-        let author = document.createElement("p");
-        author.textContent = "Author: " +myLibrary[i]["author"];
-        author.setAttribute("class","author");
-        div.appendChild(author);
-
-        let pages = document.createElement("p");
-       pages.textContent = "Pages: " +myLibrary[i]["pages"];
-       div.appendChild(pages);
-
-       let buttons = document.createElement("div");
-
-       let readButton = document.createElement("button");
-        if(myLibrary[i].read===true){readButton.textContent="Read";}
-        else{readButton.textContent="Not Read";}
-
-        readButton.addEventListener("click", function(e) {
-            alert(e.target.textContent);
-            if(e.target.textContent==="Read"){
-                e.target.textContent="Not Read"
-                titleChild=e.target.parentNode.parentNode.childNodes[0].textContent; //takes tha value of h3(from the same div)
-                for(k=0;k<myLibrary.length;k++)
-                {
-                    if(myLibrary[k].title===titleChild){
-                        alert(JSON.stringify(myLibrary));
-                        myLibrary[k].read=false;
-                        alert(JSON.stringify(myLibrary));
-                    }
-                }               
-            }
-            else{
-                e.target.textContent="Read";
-                titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;
-                for(k=0;k<myLibrary.length;k++)
-                {
-                    if(myLibrary[k].title===titleChild){
-                        alert(JSON.stringify(myLibrary));
-                        myLibrary[k].read=true;
-                        alert(JSON.stringify(myLibrary));
-                    
-                    }
-                 
-                }
-            }
-        });
-
-       //readButton.textContent="Read";
-       readButton.setAttribute("class","btn");
-       buttons.appendChild(readButton);
-
-       let removeButton = document.createElement("button");
-       removeButton.textContent="Remove";
-       removeButton.setAttribute("class","btn remove");
-       removeButton.setAttribute("id",i);
-       removeButton.setAttribute("style", "color: red;");
-       removeButton.addEventListener("click", function(e) {
-            titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;
-         //   alert(myLibrary.length);
-            for(k=0;k<myLibrary.length;k++)
-            {
-                if(myLibrary[k].title===titleChild){
-                    alert(JSON.stringify(myLibrary));
-                    myLibrary.splice(k,1);
-                    alert(JSON.stringify(myLibrary));
-                    
-                }
-                 
-            }
-            e.target.parentNode.parentNode.remove();
-
-  });
-       
-       buttons.appendChild(removeButton);
-
-
-       div.appendChild(buttons);
-
-        document.getElementById("deksia").appendChild(div); 
-       // let ele = document.querySelectorAll(".books");     
-    }    
-}
 
 function refreshLibrary(){
     let ele = document.querySelectorAll(".books");
