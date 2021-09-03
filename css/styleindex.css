@@ -1,0 +1,166 @@
+body{
+    margin:0px;padding:0px;
+}
+
+nav{
+    position:fixed;
+    background-color: hsl(5, 90%, 64%);
+    top:0px;left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    height:15%;
+    width:100%;
+    z-index: 1000;
+}
+
+h1{
+    font-size:50px;
+}
+
+#divForm{
+    position: fixed;
+    background-color: grey;
+    top:15%;
+    left:0px;
+    height:85%;
+    width:25%;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+  
+}
+
+#form{
+    width:100%;
+    background-color: blueviolet;display:flex; flex-direction: column; padding:30px;
+}
+
+#form label{
+    font-size: 20px;
+    font-family: "montserrat";
+}
+
+#form input[type=text]{ width:100%;border: none;
+    border: 1px solid black;
+    padding:10px 20px;
+    font-size:20px;
+    font-family:"montserrat";
+  
+    color:#3498db;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+}
+
+#form input[type=number]{
+    width:100%;border: none;
+    border: 1px solid black;
+    padding:10px 20px;
+    font-size:20px;
+    font-family:"montserrat";
+  
+    color:#3498db;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+}
+
+#form input[type=button]
+{
+    width:100%;border: none;
+    border: 1px solid black;
+    padding:10px 20px;
+    font-size:20px;
+    font-family:"montserrat";
+  
+    color:#3498db;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+    cursor:pointer;
+}
+
+#divForm #form .errorMessage{
+    color:red;
+    display:none;
+    
+}
+
+#divForm #form .sameTitle{
+    color:red;
+    display:none;
+    
+}
+
+#form input:hover{
+    
+        
+}
+
+#deksia {
+    position:absolute;
+    top:15%;
+    left: 25%;
+    background-color: hsl(0, 100%, 96%);;
+    width:75%;
+    max-width:75%;
+    min-height: 85%;
+   padding-top:20px;
+    display:grid;
+   grid-template-columns: repeat(3,auto); 
+   row-gap: 20px;
+   justify-content: space-around;
+   align-items: center;
+}
+
+#deksia .books{
+   
+    background-color: blue;
+    padding:0px 10px 20px 10px;
+    width:240px;
+    height:220px;
+   
+    
+}
+
+#deksia .books h3{
+    font-family:"montserrat";
+    text-align:center;
+    
+    font-size:30px;
+   
+}
+
+#deksia .books p{
+  
+  
+    font-size:20px;
+    font-family:"montserrat";
+    
+   
+   
+}
+
+#deksia .books div .btn{
+    border: 1px solid #3498db;
+    background:none;
+    padding:10px 20px;
+    margin-right:3px;
+    font-size:20px;
+    font-family:"montserrat";
+    cursor:pointer;
+    color:#3498db;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    transition: all 0.3s ease 0s;
+}
+
+#deksia .books div{
+    text-align:center;
+}

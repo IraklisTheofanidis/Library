@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Library</title>
+       <link href="css/styleindex.css" rel="stylesheet">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </head>   
+
+<body>
+    <nav>
+        <h1>My Library</h1>
+
+    </nav>
+
+    <div id="divForm">
+        <form id="form">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter Title" >
+            <span id="titleError" class="errorMessage">error</span><span id="sameTitle" class="sameTitle">SameTitle</span><br>
+            
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" placeholder="Enter Author">
+            <span id="authorError" class="errorMessage">error</span><br>
+           
+            <label for="pages">Pages</label>
+
+            <input type="number" id="pages" name="pages"
+            min="1" placeholder="Pages of the Book" >
+            <span id="pagesError" class="errorMessage">error</span><br>
+    
+            <div id="check"> <input type="checkbox" id="checkbox" name="checkbox" >
+                <label for="checkbox">I have already read this book!</label></div><br>
+                  
+            <input id="submit" type="button" value="Submit">
+          </form>
+    </div>
+
+    <div id="deksia" >
+        
+  
+        
+    </div>
+
+    <script type="text/javascript" src="scripts/jsLibrary.js"></script>
+</body>
