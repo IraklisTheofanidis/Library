@@ -1,2 +1,2 @@
 # Library
-Library Project from the foundations of Odin the Project.
+Library Project from the foundations of the Odin Project.
