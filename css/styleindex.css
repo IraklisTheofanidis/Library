@@ -5,6 +5,7 @@ body{
 nav{
     position:fixed;
     background-color: black;
+    background-color: #F4F1DE;
     top:0px;left:0px;
     display: flex;
     align-items: center;
@@ -17,9 +18,10 @@ nav{
 h1{
     font-size:50px;
     color:white;
+    color:black;
 }
 
-img{
+ img{
     height:100%;
     
 }
@@ -28,7 +30,7 @@ img{
     position:fixed;
     z-index: 3000;
     top:20%;
-    right:20px;
+    right:5px;
     border: none;
     outline: none;
      font-size: 1.8rem;
@@ -50,7 +52,7 @@ img{
 #addbook button{
     border:none;
     background-color: red;
-    font-size:20px;
+    font-size:30px;
     width:100%;
     height:100%;
     border-radius:50%;
@@ -62,13 +64,13 @@ img{
 #divForm{
     position: fixed;
    left:0;right:0;margin-left: auto;margin-right:auto;
-   top:0;bottom:0;margin-top:auto;margin-bottom:auto;
+   top:25%;
 
     height:70%;
     width:350px;
     display: flex;
     justify-content: center;
-    z-index:1100;
+    z-index:5000;
     display:none; transition: all 0.7s ease 0s;   
 }
 
@@ -77,7 +79,7 @@ img{
     background-color: white;
     display:flex; flex-direction: column; padding-top:30px;padding-bottom:30px;
     width:350px;
-    border: solid;transition: all 0.7s ease 0s;   
+    border: solid; 
 }
 
 #form label{
@@ -172,10 +174,12 @@ img{
     left: 0px;
     background-color: #00aba0;
     background-color: #01a1ff;
+    background-color: #F4F1DE;
     width:100%;
     max-width:100%;
     min-height: 85%;
    padding-top:20px;
+   
     display:grid;
    grid-template-columns: repeat(3,auto); 
    row-gap: 20px;
@@ -185,15 +189,18 @@ img{
 }
 
 #deksia .books{
-   
+    
     background-color: #f5593d;
-    background:linear-gradient(to right, #2c3e50, #4ca1af);
+    /* background:linear-gradient(to right, #2c3e50, #4ca1af); */
+    background-color: #F2CC8F;
     padding:0px 10px 20px 10px;
    
-   width:240px;
+   width:300px;
   /* display:flex;*/
    flex-direction: column;
    justify-content: space-between;
+
+   border-radius: 10px;
     
 }
 
@@ -216,6 +223,9 @@ img{
    
 }
 
+#deksia .books div{
+    display:flex;gap:10px;justify-content: center;
+}
 #deksia .books div .btn{
     border: 1px solid #3498db;
     background:none;
@@ -234,19 +244,27 @@ img{
 }
 
 
-@media (max-width: 900px){
+@media (max-width: 1300px){
     #deksia{grid-template-columns: repeat(2,auto);
     }
     #deksia .books{
-        width:180px;
+        
     }
 
     #deksia .books div .btn{
-        padding:10px 15px;
+        
     }
 
    /* #form input[type=text]{font-size:15px;}
     #form input[type=number]{font-size:15px;}
    */
+}
+
+@media (max-width: 900px){
+    #deksia{grid-template-columns: repeat(1,auto);
+    }
+    
+
+  
 }
 

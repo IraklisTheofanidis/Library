@@ -13,26 +13,15 @@ function book(title, author,pages,read) {
       
 
   }
-//alert(localStorage.getItem('bookss'));
+
 if (localStorage.getItem('bookss') === null) {
     myLibrary = [];
-    alert("null mother fuckers")
+    alert("null ");
 } 
-else {
-   
+else {  
     const booksFromStorage = JSON.parse(localStorage.getItem('bookss'));
     myLibrary = booksFromStorage;
-    //alert(JSON.stringify(myLibrary));
     showBookInLibrary();
-}
-  
-  function addBookToLibrary(titleText, authorText,pagesText,TRUE){   
-     let book1 = new book(titleText, authorText,pagesText,TRUE);   
-     myLibrary.push(book1);
-     localStorage.setItem('bookss', JSON.stringify(myLibrary));
-    // showBookInLibrary(book1);
-    showBookInLibrary();
-    // alert(myLibrary.length);
 }
 
 document.getElementById("submit").addEventListener("click", function() {
@@ -43,11 +32,17 @@ document.getElementById("submit").addEventListener("click", function() {
     
     checkError(titleText,authorText,pagesText,readCheck);
     
-
     document.getElementById("title").value="";
     document.getElementById("author").value="";
     document.getElementById("pages").value="";
   });
+  
+  function addBookToLibrary(titleText, authorText,pagesText,TRUE){   
+     let book1 = new book(titleText, authorText,pagesText,TRUE);   
+     myLibrary.push(book1);
+     localStorage.setItem('bookss', JSON.stringify(myLibrary));
+    showBookInLibrary();
+}
 
   function showBookInLibrary(){
 
@@ -57,7 +52,6 @@ document.getElementById("submit").addEventListener("click", function() {
         let div = document.createElement('div');
         div.setAttribute('class', 'books'); 
         
-
         let h3 = document.createElement('h3');
         h3.textContent = myLibrary[i]["title"];
         h3.setAttribute('style','border-bottom: solid;');
@@ -109,7 +103,6 @@ document.getElementById("submit").addEventListener("click", function() {
                 }
             }
         });
-
        //readButton.textContent="Read";
        readButton.setAttribute("class","btn");
        buttons.appendChild(readButton);
@@ -120,7 +113,7 @@ document.getElementById("submit").addEventListener("click", function() {
        removeButton.setAttribute("id",i);
        removeButton.setAttribute("style", "color: red;");
        removeButton.addEventListener("click", function(e) {
-            titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;
+            titleChild=e.target.parentNode.parentNode.childNodes[0].textContent;//h3 content
          //   alert(myLibrary.length);
             for(k=0;k<myLibrary.length;k++)
             {
@@ -137,10 +130,7 @@ document.getElementById("submit").addEventListener("click", function() {
   });
        
        buttons.appendChild(removeButton);
-
-
        div.appendChild(buttons);
-
         document.getElementById("deksia").appendChild(div); 
        // let ele = document.querySelectorAll(".books");     
     }    
