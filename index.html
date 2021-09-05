@@ -9,33 +9,36 @@
 
 <body>
     <nav>
-        <h1>My Library</h1>
+        <h1>My Library</h1><img src="images/logo6.png" alt="logo">
 
     </nav>
 
     <div id="divForm">
+        <span id="xbuttonSpan"><button id="xbutton" >x</button></span>
         <form id="form">
+           
             <label for="title">Title</label>
             <input type="text" id="title" name="title" placeholder="Enter Title" >
-            <span id="titleError" class="errorMessage">error</span><span id="sameTitle" class="sameTitle">SameTitle</span><br>
+            <span id="titleError" class="errorMessage">Please fill out this field.</span><span id="sameTitle" class="sameTitle">SameTitle</span><br>
             
             <label for="author">Author</label>
             <input type="text" id="author" name="author" placeholder="Enter Author">
-            <span id="authorError" class="errorMessage">error</span><br>
+            <span id="authorError" class="errorMessage">Please fill out this field.</span><br>
            
             <label for="pages">Pages</label>
 
             <input type="number" id="pages" name="pages"
             min="1" placeholder="Pages of the Book" >
-            <span id="pagesError" class="errorMessage">error</span><br>
+            <span id="pagesError" class="errorMessage">Please fill out this field.</span><br>
     
             <div id="check"> <input type="checkbox" id="checkbox" name="checkbox" >
                 <label for="checkbox">I have already read this book!</label></div><br>
                   
-            <input id="submit" type="button" value="Submit">
+            <div id="btns"><input id="submit" type="button" value="Add Book"> </div>
           </form>
     </div>
 
+    <span id="addbook"><button id="+">+</button></span>
     <div id="deksia" >
         
   

@@ -4,12 +4,11 @@ body{
 
 nav{
     position:fixed;
-    background-color: hsl(5, 90%, 64%);
+    background-color: black;
     top:0px;left:0px;
     display: flex;
     align-items: center;
     justify-content: center;
-   
     height:15%;
     width:100%;
     z-index: 1000;
@@ -17,86 +16,149 @@ nav{
 
 h1{
     font-size:50px;
+    color:white;
 }
+
+img{
+    height:100%;
+    
+}
+
+#addbook{
+    position:fixed;
+    z-index: 3000;
+    top:20%;
+    right:20px;
+    border: none;
+    outline: none;
+     font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  background: red;
+  display: flex;align-items: center;justify-content: center;
+  transition-duration: 0.7s;
+}
+
+#addbook:hover{
+    transform:rotate(90deg) scale(1.1);
+ 
+}
+
+#addbook button{
+    border:none;
+    background-color: red;
+    font-size:20px;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    cursor: pointer;
+}
+
+
 
 #divForm{
     position: fixed;
-    background-color: grey;
-    top:15%;
-    left:0px;
-    height:85%;
-    width:25%;
+   left:0;right:0;margin-left: auto;margin-right:auto;
+   top:0;bottom:0;margin-top:auto;margin-bottom:auto;
+
+    height:70%;
+    width:350px;
     display: flex;
     justify-content: center;
-    
-    
-    
-  
+    z-index:1100;
+    display:none; transition: all 0.7s ease 0s;   
 }
 
 #form{
     width:100%;
-    background-color: blueviolet;display:flex; flex-direction: column; padding:30px;
+    background-color: white;
+    display:flex; flex-direction: column; padding-top:30px;padding-bottom:30px;
+    width:350px;
+    border: solid;transition: all 0.7s ease 0s;   
 }
 
 #form label{
     font-size: 20px;
     font-family: "montserrat";
+    margin-left: 12px;
 }
 
-#form input[type=text]{ width:100%;border: none;
+#form input[type=text]{ width:80%;border: none;
     border: 1px solid black;
     padding:10px 20px;
     font-size:20px;
     font-family:"montserrat";
-  
+    left:0;right:0;margin-left:auto;margin-right: auto;
     color:#3498db;
-    box-sizing: border-box;
+    
     box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
     border-radius: 4px;
     transition: all 0.3s ease 0s;
 }
 
 #form input[type=number]{
-    width:100%;border: none;
+    width:80%;border: none;
     border: 1px solid black;
     padding:10px 20px;
     font-size:20px;
     font-family:"montserrat";
-  
+    left:0;right:0;margin-left:auto;margin-right: auto;
     color:#3498db;
-    box-sizing: border-box;
+    
     box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
     border-radius: 4px;
     transition: all 0.3s ease 0s;
 }
 
 #form input[type=button]
-{
-    width:100%;border: none;
+{   
+    border: none;
     border: 1px solid black;
     padding:10px 20px;
     font-size:20px;
     font-family:"montserrat";
   
     color:#3498db;
-    box-sizing: border-box;
+   
     box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
     border-radius: 4px;
     transition: all 0.3s ease 0s;
     cursor:pointer;
 }
 
+#form #check{
+    margin-left:12px;
+}
+
+#divForm #xbuttonSpan{
+    border:none;position:absolute;top:10px;right:0px;
+}
+#divForm span #xbutton{
+    border:none;
+    font-size:20px;
+    background-color: white;
+    cursor:pointer;
+}
+#form #btns{
+    text-align: center;
+}
+
+
 #divForm #form .errorMessage{
     color:red;
     display:none;
+    margin-left: 12px;
+    
     
 }
 
 #divForm #form .sameTitle{
     color:red;
-    display:none;
-    
+    display:none;z-index: 5000;
+    margin-left: 12px;
 }
 
 #form input:hover{
@@ -107,35 +169,40 @@ h1{
 #deksia {
     position:absolute;
     top:15%;
-    left: 25%;
-    background-color: hsl(0, 100%, 96%);;
-    width:75%;
-    max-width:75%;
+    left: 0px;
+    background-color: #00aba0;
+    background-color: #01a1ff;
+    width:100%;
+    max-width:100%;
     min-height: 85%;
    padding-top:20px;
     display:grid;
    grid-template-columns: repeat(3,auto); 
    row-gap: 20px;
-   justify-content: space-around;
+   justify-content: space-evenly;
    align-items: center;
+   transition: all 0.7s ease 0s;   
 }
 
 #deksia .books{
    
-    background-color: blue;
+    background-color: #f5593d;
+    background:linear-gradient(to right, #2c3e50, #4ca1af);
     padding:0px 10px 20px 10px;
-    width:240px;
-    height:220px;
    
+   width:240px;
+  /* display:flex;*/
+   flex-direction: column;
+   justify-content: space-between;
     
 }
 
 #deksia .books h3{
     font-family:"montserrat";
     text-align:center;
-    
-    font-size:30px;
    
+    font-size:20px;
+    word-break: break-word;
 }
 
 #deksia .books p{
@@ -143,6 +210,7 @@ h1{
   
     font-size:20px;
     font-family:"montserrat";
+    text-align: center;
     
    
    
@@ -164,3 +232,21 @@ h1{
 #deksia .books div{
     text-align:center;
 }
+
+
+@media (max-width: 900px){
+    #deksia{grid-template-columns: repeat(2,auto);
+    }
+    #deksia .books{
+        width:180px;
+    }
+
+    #deksia .books div .btn{
+        padding:10px 15px;
+    }
+
+   /* #form input[type=text]{font-size:15px;}
+    #form input[type=number]{font-size:15px;}
+   */
+}
+

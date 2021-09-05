@@ -13,7 +13,7 @@ function book(title, author,pages,read) {
       
 
   }
-alert(localStorage.getItem('bookss'));
+//alert(localStorage.getItem('bookss'));
 if (localStorage.getItem('bookss') === null) {
     myLibrary = [];
     alert("null mother fuckers")
@@ -56,9 +56,12 @@ document.getElementById("submit").addEventListener("click", function() {
     for(i=0;i<myLibrary.length;i++){
         let div = document.createElement('div');
         div.setAttribute('class', 'books'); 
-       
+        
+
         let h3 = document.createElement('h3');
         h3.textContent = myLibrary[i]["title"];
+        h3.setAttribute('style','border-bottom: solid;');
+       
         div.appendChild(h3);
 
         let author = document.createElement("p");
@@ -207,6 +210,16 @@ function refreshLibrary(){
 
 
 
+document.getElementById("+").addEventListener("click", function() {
+    document.getElementById("divForm").style.display="block";
+    document.getElementById("deksia").style.opacity="0.6";
 
+});
+
+document.getElementById("xbutton").addEventListener("click",function(){
+    document.getElementById("divForm").style.display="none";
+    document.getElementById("deksia").style.opacity="1";
+
+});
 
 
